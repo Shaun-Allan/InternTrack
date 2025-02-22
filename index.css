@@ -4,7 +4,7 @@
 }
 
 #background {
-  background-image: url("./public/fountain.webp");
+  background-image: url("./assets/fountain.webp");
   background-size: cover;
   background-repeat: no-repeat;
   min-width: 100vw;
