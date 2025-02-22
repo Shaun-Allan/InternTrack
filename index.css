@@ -1,0 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#background {
+  background-image: url("./public/fountain.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#overlay {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  background-color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  border-radius: 10px;
+  width: max-content;
+  height: max-content;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 20px rgba(135, 206, 250, 0.5);
+}
+
+#aside {
+  max-height: 400px;
+  min-height: 350px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-sizing: border-box;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#login-title {
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+}
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  #ssn {
+    height: 70px;
+    margin-right: 80px;
+  }
+
+  #intern-track {
+    height: 130px;
+  }
+}
+
+.entryarea {
+  position: relative;
+  height: 80px;
+  line-height: 80px;
+}
+
+input {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  outline: none;
+  font-size: 16px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background: transparent;
+  transform: 0.1s ease;
+  z-index: 50;
+}
+
+.labelline {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  position: absolute;
+  font-size: 16px;
+  color: black;
+  margin: -52.5px 20px;
+  transition: 0.2s ease;
+  background-color: inherit;
+  line-height: normal;
+}
+
+input:focus,
+input:valid {
+  color: blue;
+  border: 2px solid blue;
+}
+
+input:focus + .labelline,
+input:valid + .labelline {
+  color: blue;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 12px;
+  transform: translate(-25px, -23px) scale(0.8);
+  z-index: 50;
+  background-color: inherit;
+}
+
