@@ -45,7 +45,8 @@
 #login {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 40px;
+  gap: 40px;
   box-sizing: border-box;
 }
 
@@ -76,55 +77,89 @@
   }
 }
 
-.entryarea {
+.input-wrapper {
+  width: 300px;
   position: relative;
-  height: 80px;
-  line-height: 80px;
 }
 
-input {
-  position: relative;
-  width: 200px;
-  height: 40px;
-  outline: none;
-  font-size: 16px;
-  padding: 0px 20px;
+.input-wrapper input {
+  width: 90%;
+  padding: 15px;
   border-radius: 10px;
-  border: 2px solid black;
-  background: transparent;
-  transform: 0.1s ease;
-  z-index: 50;
+  border: 1px solid rgba(39, 40, 41, 0.6);
+  font-size: 15px;
+  transition: all 0.4s ease;
 }
 
-.labelline {
+.input-wrapper span {
   font-family: "Roboto", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
   position: absolute;
-  font-size: 16px;
-  color: black;
-  margin: -52.5px 20px;
-  transition: 0.2s ease;
-  background-color: inherit;
-  line-height: normal;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  padding: 10px;
+  color: rgba(39, 40, 41, 0.6);
+  pointer-events: none;
+  transition: all 0.4s ease;
 }
 
-input:focus,
-input:valid {
-  color: blue;
-  border: 2px solid blue;
+.input-wrapper input:focus {
+  outline: 2px solid #0a5aa1;
 }
 
-input:focus + .labelline,
-input:valid + .labelline {
-  color: blue;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 12px;
-  transform: translate(-25px, -23px) scale(0.8);
-  z-index: 50;
-  background-color: inherit;
+.input-wrapper input:focus ~ span {
+  color: #0a5aa1;
 }
 
+.input-wrapper input:focus ~ span,
+.input-wrapper input:valid ~ span {
+  transform: translateY(-32px);
+  font-size: 11px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+form > button {
+  margin-top: 10px;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  transition: 0.4s ease;
+  background-color: #0a5aa1;
+  border: 2px solid #0a5aa1;
+  color: white;
+}
+
+form > button:hover {
+  background-color: white;
+  border: 2px solid #0a5aa1;
+  color: #0a5aa1;
+}
+
+#hint {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: aliceblue;
+  font-family: "Roboto";
+  font-size: 14px;
+}
+
+*::selection {
+  background-color: #0a5aa1;
+  color: white;
+}

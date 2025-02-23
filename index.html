@@ -12,31 +12,43 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="./index.css" />
-    <script src="./index.js" type="text/js"></script>
+    <script src="./index.js"></script>
   </head>
-  <body>
+  <body onload="initialize()">
     <div id="background">
       <div id="overlay">
         <div id="header">
-            <img src="./assets/intern track.png" alt="intern track.png" id="intern-track">
-            <img src="./assets/ssn.png" alt="ssn" id="ssn">
+          <img
+            src="./assets/intern track.png"
+            alt="intern track.png"
+            id="intern-track"
+          />
+          <img src="./assets/ssn.png" alt="ssn" id="ssn" />
         </div>
         <div id="content">
           <img src="./assets/clock.jpg" alt="clock tower" id="aside" />
           <div id="login">
             <h1 id="login-title">Login</h1>
-                <div class="entryarea">
-                    <input type="text" required>
-                    <div class="labelline">Enter username</div>
-                </div>
-                <div class="entryarea">
-                    <input type="password" required>
-                    <div class="labelline">Enter password</div>
-                </div>
-            <button type="submit">Submit</button>
-            
+            <form>
+              <div class="input-wrapper">
+                <input type="text" id="username" required />
+                <span>Enter username</span>
+              </div>
+
+              <div class="input-wrapper">
+                <input type="password" id="password" required />
+                <span>Enter password</span>
+              </div>
+              <button type="submit" id="submit">Submit</button>
+            </form>
           </div>
         </div>
+        <span id="hint">
+          <strong>NOTE:</strong> As this site is in the design phase, there are
+          no useres registered as of now. Please enter the user name and
+          password as faculty, student and coordinator to navigate to their
+          respective pages.
+        </span>
       </div>
     </div>
   </body>
