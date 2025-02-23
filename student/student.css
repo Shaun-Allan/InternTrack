@@ -51,13 +51,30 @@ body {
   object-fit: cover;
 }
 
-#clock{
-    height: 250px;
-    width: 250px;
-    border-radius: 25px;
-    position: absolute;
-    margin-top: -140px;
-    right: 100px;
+#intern-track-title {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 50px;
+  font-style: normal;
+  span {
+    font-style: oblique;
+  }
+  position: absolute;
+  top: 40vh;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#clock {
+  height: 250px;
+  width: 250px;
+  border-radius: 25px;
+  position: absolute;
+  margin-top: -140px;
+  right: 100px;
 }
 
 #ssn-banner-video-backdrop {
@@ -80,10 +97,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 100;
 
-  #ssn {
-    height: 70px;
-    margin-right: 80px;
+  #header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    #ssn {
+      height: 70px;
+    }
+
+    #logout {
+      margin-right: 80px;
+      font-family: "Inter", serif;  
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      border: none;
+      background-color: rgb(217, 46, 46);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #logout:hover{
+        background-color: red;
+    }
   }
 
   #intern-track {
@@ -259,4 +301,16 @@ body {
   background: white;
   color: #0a5aa1;
   border: 2px solid #0a5aa1;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 40px;
+  background-color: #032747;
+  color: white;
+  font-family: "Poppins";
+  span {
+    font-style: oblique;
+  }
 }

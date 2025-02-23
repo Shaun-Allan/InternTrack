@@ -14,6 +14,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="./student.css" />
     <script src="./student.js"></script>
   </head>
@@ -25,7 +31,10 @@
         lt="intern track.png"
         id="intern-track"
       />
-      <img src="../assets/ssn.png" alt="ssn" id="ssn" />
+      <div id="header-right">
+        <img src="../assets/ssn.png" alt="ssn" id="ssn" />
+        <button id="logout" onclick="logout()">Logout</button>
+      </div>
     </header>
     <div class="video-container">
       <video
@@ -37,7 +46,7 @@
         loop
       ></video>
     </div>
-    <!-- <span id="intern-track-title">SSN - Intern Track</span> -->
+    <!-- <span id="intern-track-title">SSN - <span>Intern Track</span></span> -->
     <!-- <video
       id="ssn-banner-video-backdrop"
       src="../assets/ssn-banner-video.mov"
@@ -104,33 +113,33 @@
     </div>
     <div class="intern-tracking container">
       <h1 id="profile-title">Intern Tracking</h1>
-      <form id="intern-form">
+      <form id="intern-form" method="post">
         <div class="intern-field profile-field">
           <label for="start-date">Start Date</label>
-          <input type="date" id="start-date" />
-        </div>
+          <input type="date" id="start-date" name="Start Date"/>
+        </div>  
         <div class="intern-field profile-field">
           <label for="end-date">End Date</label>
-          <input type="date" id="end-date" />
+          <input type="date" id="end-date" name="End Date" />
         </div>
         <div class="intern-field profile-field">
           <label for="company">Intern Company</label>
-          <input type="text" id="company" placeholder="Eg. Natwest" />
+          <input type="text" id="company" placeholder="Eg. Natwest" name="Internship Company"/>
         </div>
         <div class="intern-field profile-field">
           <label for="stipend">Stipend(in Rs. ) per month</label>
-          <input type="number" id="stipend" placeholder="Eg. 45000" />
+          <input type="number" id="stipend" placeholder="Eg. 45000" name="Stipend(in Rs. ) per month" />
         </div>
         <div class="intern-field profile-field">
           <label for="placement-method">Placement through</label>
-          <select name="placement-method" id="placement-method">
+          <select name="Placement Method" id="placement-method">
             <option value="cdc">CDC</option>
             <option value="off-campus">Off Campus</option>
           </select>
         </div>
         <div class="intern-field profile-field">
           <label for="intern-type">Intern Type</label>
-          <select name="intern-type" id="intern-type">
+          <select name="Intern Type" id="intern-type">
             <option value="research">Research</option>
             <option value="industry">Industry</option>
           </select>
@@ -145,7 +154,7 @@
             <input
               type="file"
               id="intern-doc"
-              name="intern-doc"
+              name="Intern Doc"
               accept=".pdf,.doc,.docx"
               class="hidden-input"
             />
@@ -159,7 +168,7 @@
             <input
               type="file"
               id="completion-cert"
-              name="completion-cert"
+              name="Completion Certificate"
               accept=".pdf,.doc,.docx"
               class="hidden-input"
             />
@@ -173,7 +182,7 @@
             <input
               type="file"
               id="intern-report"
-              name="intern-report"
+              name="Intern Report"
               accept=".pdf,.doc,.docx"
               class="hidden-input"
             />
@@ -183,5 +192,9 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+    <footer id="footer">
+      <div id="title">SSN - <span>InternTrack</span></div>
+      <div id="copyright">&copy; All rights reserved</div>
+    </footer>
   </body>
 </html>
