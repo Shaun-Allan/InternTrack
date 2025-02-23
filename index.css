@@ -25,13 +25,15 @@
 }
 
 #content {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.5); /* Increased transparency */
   display: flex;
   border-radius: 10px;
   width: max-content;
   height: max-content;
   box-sizing: border-box;
-  box-shadow: 2px 2px 20px rgba(135, 206, 250, 0.5);
+  box-shadow: 2px 2px 20px rgba(135, 206, 250, 0.3); /* Softer shadow */
+  backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+  opacity: 0.9; /* Slightly translucent */
 }
 
 #aside {
@@ -162,4 +164,48 @@ form > button:hover {
 *::selection {
   background-color: #0a5aa1;
   color: white;
+}
+
+@media (max-width: 768px) {
+  #aside {
+    display: none;
+  }
+
+  #header {
+    padding: 10px 5px;
+
+    #ssn {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    #intern-track {
+      height: 90px;
+    }
+  }
+
+  #login {
+    padding: 20px 15px;
+    gap: 18px;
+  }
+
+  form {
+    gap: 15px;
+  }
+
+  #hint {
+    text-align: justify;
+    width: 90%;
+    font-size: 13px;
+  }
+
+  #background {
+    min-height: 92vh;
+    max-height: 92vh;
+  }
+
+  #overlay {
+    min-height: inherit;
+    max-height: inherit;
+  }
 }

@@ -20,6 +20,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" type="text/css" href="./student.css" />
     <script src="./student.js"></script>
   </head>
@@ -33,7 +37,9 @@
       />
       <div id="header-right">
         <img src="../assets/ssn.png" alt="ssn" id="ssn" />
-        <button id="logout" onclick="logout()">Logout</button>
+        <button id="logout" onclick="logout()">
+          <i class="fa fa-sign-out"></i> <span>Logout</span>
+        </button>
       </div>
     </header>
     <div class="video-container">
@@ -59,7 +65,7 @@
     <!-- <img src="../assets/clock.jpg" alt="clock" id="clock"/> -->
 
     <div class="profile container">
-      <h1 id="profile-title">Profile</h1>
+      <h1 id="profile-title">Profile - Student</h1>
       <div id="profile-content">
         <div id="profile-left">
           <img src="../assets/profile.jpeg" alt="profile" id="profile-img" />
@@ -113,35 +119,66 @@
     </div>
     <div class="intern-tracking container">
       <h1 id="profile-title">Intern Tracking</h1>
-      <form id="intern-form" method="post">
+      <form
+        id="intern-form"
+        method="post"
+        action="https://script.google.com/macros/s/AKfycbyEjIJXIBxSF-DZ1fZde4Y2Wj7YFmPRqW3vXyM-KH1GwsABqejY-32Zvnth3u8KVXpo/exec"
+      >
         <div class="intern-field profile-field">
           <label for="start-date">Start Date</label>
-          <input type="date" id="start-date" name="Start Date"/>
-        </div>  
+          <input
+            type="date"
+            id="start-date"
+            name="Start Date"
+            placeholder="Eg. 06-05-2005"
+          />
+        </div>
         <div class="intern-field profile-field">
           <label for="end-date">End Date</label>
-          <input type="date" id="end-date" name="End Date" />
+          <input
+            type="date"
+            id="end-date"
+            name="End Date"
+            placeholder="Eg. 06-05-2005"
+          />
         </div>
         <div class="intern-field profile-field">
           <label for="company">Intern Company</label>
-          <input type="text" id="company" placeholder="Eg. Natwest" name="Internship Company"/>
+          <input
+            type="text"
+            id="company"
+            placeholder="Eg. Natwest"
+            name="Internship Company"
+          />
         </div>
         <div class="intern-field profile-field">
           <label for="stipend">Stipend(in Rs. ) per month</label>
-          <input type="number" id="stipend" placeholder="Eg. 45000" name="Stipend(in Rs. ) per month" />
+          <input
+            type="number"
+            id="stipend"
+            placeholder="Eg. 45000"
+            name="Stipend(in Rs. ) per month"
+          />
         </div>
         <div class="intern-field profile-field">
           <label for="placement-method">Placement through</label>
           <select name="Placement Method" id="placement-method">
-            <option value="cdc">CDC</option>
-            <option value="off-campus">Off Campus</option>
+            <option value="CDC">CDC</option>
+            <option value="Off Campus">Off Campus</option>
           </select>
         </div>
         <div class="intern-field profile-field">
           <label for="intern-type">Intern Type</label>
           <select name="Intern Type" id="intern-type">
-            <option value="research">Research</option>
-            <option value="industry">Industry</option>
+            <option value="Research">Research</option>
+            <option value="Industry">Industry</option>
+          </select>
+        </div>
+        <div class="intern-field profile-field">
+          <label for="intern-location">Intern Location</label>
+          <select name="Intern Location" id="intern-location">
+            <option value="India">India</option>
+            <option value="Abroad">Abroad</option>
           </select>
         </div>
         <div class="intern-field profile-field doc">
@@ -150,11 +187,13 @@
           >
 
           <div class="upload-box" id="uploadBox">
-            <span id="uploadText">Drag & Drop or Click to Upload</span>
+            <span class="upload-text" id="uploadText"
+              >Drag & Drop or Click to Upload</span
+            >
             <input
               type="file"
               id="intern-doc"
-              name="Intern Doc"
+              name="Offer Letter"
               accept=".pdf,.doc,.docx"
               class="hidden-input"
             />
@@ -164,7 +203,9 @@
           <label for="completion-cert">Upload Completion Certificate</label>
 
           <div class="upload-box" id="uploadBox">
-            <span id="uploadText">Drag & Drop or Click to Upload</span>
+            <span class="upload-text" id="uploadText"
+              >Drag & Drop or Click to Upload</span
+            >
             <input
               type="file"
               id="completion-cert"
@@ -178,7 +219,9 @@
           <label for="intern-report">Upload Internship Report</label>
 
           <div class="upload-box" id="uploadBox">
-            <span id="uploadText">Drag & Drop or Click to Upload</span>
+            <span class="upload-text" id="uploadText"
+              >Drag & Drop or Click to Upload</span
+            >
             <input
               type="file"
               id="intern-report"
@@ -187,6 +230,16 @@
               class="hidden-input"
             />
           </div>
+        </div>
+        <div class="intern-field profile-field student-feedback-field">
+          <label for="student-feedback"
+            >Student Feedback About Internship</label
+          >
+          <textarea
+            name="Student Feedback About Internship"
+            id="student-feedback"
+            value=""
+          ></textarea>
         </div>
         <button type="reset">Clear Form</button>
         <button type="submit">Submit</button>

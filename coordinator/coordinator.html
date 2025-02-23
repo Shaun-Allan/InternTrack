@@ -46,9 +46,50 @@
         loop
       ></video>
     </div>
-    
+    <div class="container search">
+      <h1 id="profile-title">Track Interns</h1>
+      <div id="filters">
+        <button class="filter">Batch</button>
+        <button class="filter">Intern Type</button>
+        <button class="filter">Intern Period</button>
+        <button class="filter">Stipend</button>
+        <button class="filter">Internship Through</button>
+        <button class="filter">Internship Location</button>
+      </div>
+    </div>
 
-    
+    <div id="batch-fitler" class="filter-container"></div>
+    <div id="type-fitler" class="filter-container"></div>
+    <div id="period-fitler" class="filter-container"></div>
+    <div id="stipend-fitler" class="filter-container"></div>
+    <div id="through-filter" class="filter-container"></div>
+    <div id="location-fitler" class="filter-container"></div>
+
+    <div class="table-container container">
+      <table id="intern-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Stipend</th>
+            <th>Placed Through</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Batch</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button id="prev-btn" disabled>Previous</button>
+      <span id="page-info"></span>
+      <button id="next-btn">Next</button>
+    </div>  
+
     <footer id="footer">
       <div id="title">SSN - <span>InternTrack</span></div>
       <div id="copyright">&copy; All rights reserved</div>
