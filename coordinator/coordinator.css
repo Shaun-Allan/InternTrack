@@ -341,6 +341,111 @@ canvas {
   transform: none;
 }
 
+.edit-container {
+  display: none;
+  min-width: 100vw;
+  min-height: 100vh;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 150;
+  overflow-y: scroll;
+
+  .edit-inner-container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px 50px;
+    border-radius: 20px;
+    overflow-y: scroll;
+
+    .edit-header {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+
+      .close-btn {
+        color: black;
+        top: 0px;
+        right: 0px;
+        align-self: flex-end;
+      }
+
+      h1 {
+        font-family: "Poppins";
+        color: black;
+      }
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+      row-gap: 20px;
+      .profile-field {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: "Inter", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      button {
+        padding: 15px;
+        border-radius: 15px;
+        font-family: "Poppins";
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      
+      button[type="reset"] {
+        background: transparent;
+      }
+      
+      button[type="reset"]:hover {
+        background: rgba(184, 184, 184, 0.2);
+      }
+      
+      button[type="submit"] {
+        background: #0a5aa1;
+        color: white;
+        border: 2px solid #0a5aa1;
+      }
+      
+      button[type="submit"]:hover {
+        background: white;
+        color: #0a5aa1;
+        border: 2px solid #0a5aa1;
+      }
+
+      input,
+      select {
+        outline: 2px solid rgba(113, 113, 113, 0.2);
+        border-radius: 10px;
+        padding: 10px 20px;
+        border: none;
+        background: transparent;
+        font-family: "Inter", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: black;
+        font-size: 16px;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}
+
 /* Position the Edit button behind the row initially */
 #intern-table td:last-child {
   position: absolute;
@@ -484,12 +589,11 @@ canvas {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
 
-
   .pagination {
     padding-top: 30px;
   }
 
-  #pie-charts{
+  #pie-charts {
     width: 100%;
     margin-bottom: 20px;
   }
@@ -641,4 +745,9 @@ canvas {
       padding: 10px 30px;
     }
   }
+
+  
 }
+
+
+

@@ -51,6 +51,42 @@ function initialize() {
 
   addEventListenerForFilters();
 
+  function addEventListenerForEdit(edit, content) {
+    edit.addEventListener("click", (event) => {
+      content.style.display = "flex"; // Show the popup
+      positionFilterContainer(content, event.target); // Position it near the button clicked
+    });
+  }
+
+  function positionFilterContainer(container, button) {
+    let rect = button.getBoundingClientRect(); // Get button position relative to viewport
+    let topOffset = window.scrollY; // Position below button
+    let leftOffset = window.scrollX; // Align with button
+
+    let innerContent = container;
+    innerContent.style.top = `${topOffset}px`;
+    innerContent.style.left = `${leftOffset}px`;
+    document.body.style.overflowY = "hidden";
+  }
+
+  // Close filter container on clicking close button
+  document.querySelectorAll(".close-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      this.closest(".edit-container").style.display = "none";
+      document.body.style.overflowY = "scroll";
+    });
+  });
+
+  // Close popup when clicking outside of inner content
+  document.querySelectorAll(".edit-container").forEach((container) => {
+    container.addEventListener("click", function (e) {
+      if (e.target === this) {
+        this.style.display = "none";
+        document.body.style.overflowY = "scroll";
+      }
+    });
+  });
+
   document.getElementById("report").addEventListener("click", function () {
     // Create an anchor element
     var link = document.createElement("a");
@@ -60,7 +96,6 @@ function initialize() {
     link.click();
     document.body.removeChild(link);
   });
-
 
   var sheetURL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmaKeN2y5IpuYcWpbmWCh3xoNscexAGPNATZFnUg6wTVUtA28oiyYUxDmrWknxRUNQkfrg6FeOJFBM/pub?output=csv";
@@ -107,6 +142,10 @@ function initialize() {
         tr.appendChild(td);
       });
       const td = document.createElement("td");
+      addEventListenerForEdit(
+        td,
+        document.querySelector(".edit-container")
+      );
       const button = document.createElement("button");
       button.className = "edit-btn";
       button.innerHTML = "<i class='fa fa-pencil'>";
@@ -161,6 +200,8 @@ function initialize() {
   });
 
   fetchData(); // Fetch data when the script runs
+
+  
 }
 
 function plot_pie(data, pie_chart, index) {
