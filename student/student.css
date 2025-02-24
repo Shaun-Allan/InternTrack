@@ -225,6 +225,11 @@ body {
   font-style: normal;
   color: black;
   font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.no-field{
+    display: none;
 }
 
 #intern-form {
@@ -241,18 +246,27 @@ body {
   width: auto;
 }
 
-.doc, .student-feedback-field {
+.intern-field > input:focus,
+.intern-field > select:focus {
+    outline: 2px solid #032747;
+}
+
+.doc,
+.student-feedback-field {
   grid-column: span 2;
 }
 
+
 #student-feedback {
   border-radius: 10px;
-  resize: vertical;
+  resize: none;
   min-height: 100px;
   padding: 10px 20px;
   font-family: "Roboto", serif;
   font-size: 14px;
+  transition: all 0.3s ease;
 }
+
 
 .upload-box {
   width: auto;
@@ -460,7 +474,8 @@ body {
     row-gap: 20px;
   }
 
-  .doc, .student-feedback-field {
+  .doc,
+  .student-feedback-field {
     grid-column: span 1;
   }
 

@@ -51,6 +51,127 @@ body {
   object-fit: cover;
 }
 
+button {
+  cursor: pointer;
+}
+
+.filter-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 150;
+}
+
+.close-btn {
+  font-size: 50px;
+  color: white;
+  background: transparent;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 100px;
+  right: 150px;
+}
+
+.apply {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  background-color: #0a5aa1;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 500;
+  border-radius: 10px;
+  font-size: 22px;
+  border: 2px solid #0a5aa1;
+  transition: 0.4s ease;
+}
+
+.apply:hover {
+  border: 2px solid #0a5aa1;
+  background: white;
+  color: #0a5aa1;
+}
+
+#batch-container {
+}
+
+.simple-inner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+canvas {
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.range-inner-content {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+
+  .apply {
+    margin-top: 30px;
+  }
+
+  .range-box {
+    display: flex;
+    gap: 100px;
+    font-family: "Inter";
+    font-size: 18px;
+
+    .input-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-family: "Inter";
+      font-size: 18px;
+
+      input {
+        font-family: "Inter", serif;
+        font-size: 18px;
+        border-radius: 10px;
+        padding: 10px 20px;
+        outline: 2px solid rgba(136, 136, 136, 0.7);
+        border: none;
+      }
+    }
+  }
+}
+
+.simple-content {
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+  gap: 50px;
+  justify-content: start;
+
+  span {
+    font-family: "Poppins", serif;
+    font-size: 20px;
+    color: white;
+  }
+
+  select {
+    font-family: "Inter", serif;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    outline: 2px solid rgba(136, 136, 136, 0.7);
+  }
+}
+
 #intern-track-title {
   font-family: "Montserrat", serif;
   font-optical-sizing: auto;
@@ -201,13 +322,49 @@ body {
   text-align: center;
 }
 
+#intern-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#intern-table tr {
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Move row to the right on hover */
+#intern-table tr:hover {
+  transform: translateX(-100px);
+}
+
+#intern-table tr:first-child:hover {
+  transform: none;
+}
+
+/* Position the Edit button behind the row initially */
+#intern-table td:last-child {
+  position: absolute;
+  right: 0;
+  width: 80px; /* Adjust button column width */
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translate(100%);
+  border: none;
+  outline: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Reveal button when hovering */
+#intern-table tr:hover td:last-child {
+  opacity: 1;
+}
+
 #intern-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
 #intern-table tbody tr:hover {
   background-color: #f1f1f1;
-  cursor: pointer;
 }
 
 /* Pagination Styling */
@@ -216,9 +373,9 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: -15px;
+  padding-bottom: 30px;
   gap: 10px;
 }
-
 
 .pagination button {
   padding: 8px 15px;
@@ -231,14 +388,52 @@ body {
   cursor: pointer;
 }
 
-.pagination span{
-    font-family: "Roboto", serif;
-    padding: 0 20px;
+.pagination span {
+  font-family: "Roboto", serif;
+  padding: 0 20px;
 }
 
 .pagination button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+#pie-charts {
+  display: flex;
+  gap: 40px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  width: 94vw;
+  #report {
+    background-color: #0a5aa1;
+    color: white;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.4s ease;
+  }
+  #report:hover {
+    background-color: #032747;
+  }
+}
+
+.pie-chart {
+  height: 200px;
+  width: 200px;
 }
 
 #footer {
@@ -250,5 +445,200 @@ body {
   font-family: "Poppins";
   span {
     font-style: oblique;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    padding: 40px 30px;
+  }
+
+  .table-container {
+    /* min-width: 94vw;
+    max-width: 94vw; */
+  }
+
+  .container {
+    max-width: 87vw;
+    min-width: 87vw;
+  }
+
+  .table-container {
+    max-width: 96vw;
+    min-width: 96vw;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    border-radius: 15px;
+    /* border: 2px solid black; */
+    padding: 0 10px; /* Ensures rounded corners don't get cut */
+    background: white;
+  }
+
+  /* Apply rounded corners only to the first and last row */
+  #intern-table {
+    width: 100%;
+    min-width: 900px; /* Adjust if needed */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden; /* Ensures the table takes the rounded shape */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .pagination {
+    padding-top: 30px;
+  }
+
+  #pie-charts{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    min-width: 94vw;
+    max-width: 94vw;
+  }
+
+  #navbar {
+    padding: 10px 5px;
+
+    #header-right {
+      gap: 10px;
+      #logout {
+        margin-right: 15px;
+        span {
+          display: none;
+        }
+      }
+      #ssn {
+        height: 50px;
+      }
+    }
+
+    #intern-track {
+      height: 90px;
+    }
+  }
+
+  .video-container {
+    max-height: 35vh;
+  }
+
+  .container {
+    padding: 20px 20px;
+    max-width: 87vw;
+    min-width: 87vw;
+  }
+
+  #report {
+    margin-right: 23px;
+  }
+
+  .filter {
+    padding: 8px 8px;
+  }
+
+  #footer {
+    padding: 20px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .search-header {
+    flex-direction: column;
+    gap: 15px;
+    #report {
+      padding: 15px 0;
+    }
+  }
+
+  #pie-charts {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    max-width: 87vw;
+    min-width: 87vw;
+  }
+
+  .pagination {
+    padding-top: 10px;
+  }
+
+  .table-container {
+    max-width: 91vw;
+    min-width: 91vw;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    border-radius: 15px;
+    /* border: 2px solid black; */
+    padding: 0 10px; /* Ensures rounded corners don't get cut */
+    background: white;
+  }
+
+  /* Apply rounded corners only to the first and last row */
+  #intern-table {
+    width: 100%;
+    min-width: 900px; /* Adjust if needed */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden; /* Ensures the table takes the rounded shape */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .close-btn {
+    top: 30px;
+    right: 30px;
+  }
+
+  .range-inner-content {
+    gap: 35px;
+
+    .range-box {
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+
+      .input-box {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-family: "Inter";
+        font-size: 18px;
+
+        input {
+          font-family: "Inter", serif;
+          font-size: 18px;
+          border-radius: 10px;
+          padding: 10px 20px;
+          outline: 2px solid rgba(136, 136, 136, 0.7);
+          border: none;
+        }
+      }
+    }
+  }
+
+  #pie-charts {
+    display: none;
+  }
+
+  .table-container {
+    margin-top: 10px;
+  }
+
+  .pagination {
+    margin-top: 15px;
+  }
+
+  .simple-content {
+    flex-direction: column;
+
+    select {
+      padding: 10px 30px;
+    }
   }
 }
